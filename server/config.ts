@@ -34,7 +34,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
   const isTest = nodeEnv === 'test';
 
   // This file lives in <root>/server or <root>/dist/server; root is two levels up.
-  const root = path.resolve(__dirname, '..', '..');
+  const root = process.cwd();
   const siteUrl = env.SITE_URL && env.SITE_URL.trim() ? env.SITE_URL.trim().replace(/\/+$/, '') : null;
 
   return {
